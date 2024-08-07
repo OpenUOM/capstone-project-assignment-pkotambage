@@ -50,8 +50,8 @@ const readTeacherInfo = async (id) => {
     });
 }
 
-const addTeacher = async (id, name, age) => {
-    const sql = `INSERT INTO teacher (id, name, age) VALUES (?, ?, ?)`
+const addTeacher = async (name, age) => {
+    const sql = `INSERT INTO teacher (name, age) VALUES (?, ?)`
     return new Promise((resolve, reject) => {
         knex_db
             .raw(sql)
@@ -65,7 +65,7 @@ const addTeacher = async (id, name, age) => {
 }
 
 const updateTeacher = async (name, age, id) => {
-    const sql = `SELECT * FROM dummyData`
+    const sql = `UPDATE teacher SET name = ?, age = ? WHERE id = ?`
     return new Promise((resolve, reject) => {
         knex_db
             .raw(sql)
@@ -120,8 +120,8 @@ const readStudentInfo = async (id) => {
     });
 }
 
-const addStudent = async (id, name, age, hometown) => {
-    const sql = `INSERT INTO student (id, name, age, hometown) VALUES (?, ?, ?, ?)`
+const addStudent = async (name, age, hometown) => {
+    const sql = `INSERT INTO student (name, age, hometown) VALUES (?, ?, ?)`
     return new Promise((resolve, reject) => {
         knex_db
             .raw(sql)
