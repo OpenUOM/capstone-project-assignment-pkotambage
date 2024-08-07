@@ -51,7 +51,7 @@ const readTeacherInfo = async (id) => {
 }
 
 const addTeacher = async (id, name, age) => {
-    const sql = `SELECT * FROM dummyData`
+    const sql = `INSERT INTO teacher (id, name, age) VALUES (?, ?, ?)`
     return new Promise((resolve, reject) => {
         knex_db
             .raw(sql)
